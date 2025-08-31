@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ufaqwani.vercel.app/sitemap.xml
+
+Sitemap: https://ufaqwani.vercel.app/sitemap.xml
