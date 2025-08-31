@@ -443,7 +443,8 @@
               <span>Message</span>
               <textarea name="message" rows="5" required></textarea>
             </label>
-            <input type="hidden" name="_next" value="/success.html" />
+            <!-- Client-side redirect handles success; _next not needed on free plan -->
+            <!-- <input type="hidden" name="_next" value="/success.html" /> -->
             <button class="btn primary" type="submit">Send Message</button>
             <p class="form-status muted">You’ll be redirected after submit.</p>
           </form>
@@ -463,6 +464,7 @@
       </div>
     </footer>
 
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
     <script src="script.js"></script>
   </body>
   </html>

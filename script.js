@@ -38,4 +38,46 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-// No JS handler needed when posting to Formspree
+// AJAX Formspree submit with client-side redirect (free plan)
+const contactForm = document.querySelector('form.contact-form[action^="https://formspree.io/"]');
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const statusEl = contactForm.querySelector('.form-status');
+    const toast = document.getElementById('toast');
+    const data = new FormData(contactForm);
+    try {
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+      }
+      if (statusEl) statusEl.textContent = 'Sending…';
+      const res = await fetch(contactForm.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        if (toast) {
+          toast.textContent = 'Message sent! Redirecting…';
+          toast.hidden = false;
+          requestAnimationFrame(() => toast.classList.add('show'));
+        }
+        setTimeout(() => { window.location.href = 'success.html'; }, 800);
+      } else {
+        if (statusEl) statusEl.textContent = 'Could not send. Please email me directly.';
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+        }
+      }
+    } catch (err) {
+      if (statusEl) statusEl.textContent = 'Network issue. Please try again or email me.';
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }
+    }
+  });
+}
