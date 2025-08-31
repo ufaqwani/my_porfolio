@@ -424,7 +424,7 @@
               <li><strong>GitHub:</strong> <a target="_blank" rel="noreferrer" href="https://github.com/ufaqwani">github.com/ufaqwani</a></li>
             </ul>
           </div>
-          <form class="contact-form" name="contact" action="https://formspree.io/f/xpwjqnpq" method="POST">
+          <form id="contactForm" class="contact-form" name="contact" action="https://formspree.io/f/xpwjqnpq" method="POST" target="hidden_iframe">
             <!-- Honeypot field to deter bots -->
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-5000px;" aria-hidden="true" />
             <!-- Optional: Subject line -->
@@ -448,6 +448,7 @@
             <button class="btn primary" type="submit">Send Message</button>
             <p class="form-status muted">You’ll be redirected after submit.</p>
           </form>
+          <iframe name="hidden_iframe" style="display:none"></iframe>
         </div>
       </section>
     </main>

@@ -39,7 +39,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 // AJAX Formspree submit with client-side redirect (free plan)
-const contactForm = document.querySelector('form.contact-form[action^="https://formspree.io/"]');
+const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
