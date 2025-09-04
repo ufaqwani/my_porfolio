@@ -2,7 +2,7 @@
 
 ### Title: Ufaq Wani — Senior PM, AI SaaS
 
-Live site: https://ufaqwani.vercel.app (link)
+Live site: https://ufaqwani.vercel.app
 
 Highlights: $480K ARR pilots in 6 months · 2,000+ hrs/mo saved · 15+ hospitals
 
